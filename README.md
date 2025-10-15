@@ -1,0 +1,1 @@
+# Rida Psychotherapy - Full Vite + React + Tailwind site\n\nThis is a ready-to-deploy project for Rida Psychotherapy and Counselling Service.\n\n## Deploy\n1. Create a new GitHub repo and upload these files.\n2. In Vercel, import the GitHub repo and Deploy.\n3. Build command: `npm run build`\n4. Output directory: `dist`\n\nContact: contact@ridatherapy.com\nPhone: 0782 366 3208\n
