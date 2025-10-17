@@ -1,1 +1,21 @@
-import React from 'react';import { Link,useLocation } from 'react-router-dom';import { Phone,Mail } from 'lucide-react';export default function Header(){const location=useLocation();const nav=[{path:'/',label:'Home'},{path:'/about',label:'About'},{path:'/services',label:'Services'},{path:'/library',label:'Guidance Library'},{path:'/contact',label:'Contact'}];return (<div className='py-6 px-4 sm:px-8 container'><div className='flex flex-col sm:flex-row items-center justify-between mb-4'><div className='flex items-center gap-4'><div className='w-12 h-12 rounded-full flex items-center justify-center text-white font-bold' style={{background:'linear-gradient(135deg,var(--brand-1),var(--accent))'}}>R</div><div><div className='text-xl font-semibold' style={{color:'var(--brand-1)'}}>Rida Psychotherapy and Counselling Service</div><div className='text-sm text-gray-700 italic'>Talk. Heal. Grow.</div></div></div><div className='hidden sm:flex items-center gap-6 text-sm text-gray-700'><div className='flex items-center gap-3'><Phone size={16}/><span>0782 366 3208</span></div><div className='flex items-center gap-3'><Mail size={16}/><span>contact@ridatherapy.com</span></div></div></div><nav className='flex justify-center gap-6 text-sm font-medium text-gray-700'>{nav.map(n=>(<Link key={n.path} to={n.path} className={location.pathname===n.path? 'text-emerald-700 border-b-2 border-emerald-600 pb-1':'hover:text-emerald-600'}>{n.label}</Link>))}</nav></div>)}
+
+import React from 'react'
+import { Link, NavLink } from 'react-router-dom'
+
+export default function Header() {
+  return (
+    <header className="bg-white/60 backdrop-blur sticky top-0 z-30 border-b border-transparent">
+      <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+        <Link to="/" className="text-2xl font-heading tracking-widest">RIDA THERAPY</Link>
+        <nav className="hidden md:flex gap-6 items-center">
+          <NavLink to="/about" className={({isActive})=>isActive? 'font-semibold':'hover:underline'}>About</NavLink>
+          <NavLink to="/services" className={({isActive})=>isActive? 'font-semibold':'hover:underline'}>Services</NavLink>
+          <NavLink to="/advice" className={({isActive})=>isActive? 'font-semibold':'hover:underline'}>Advice</NavLink>
+          <NavLink to="/contact" className={({isActive})=>isActive? 'font-semibold':'hover:underline'}>Contact</NavLink>
+          <Link to="/contact" className="ml-4 inline-block bg-calmteal text-white px-4 py-2 rounded-full">Send a message</Link>
+        </nav>
+        <div className="md:hidden">{/* mobile menu placeholder */}</div>
+      </div>
+    </header>
+  )
+}
